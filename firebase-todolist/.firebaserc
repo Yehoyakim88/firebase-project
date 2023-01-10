@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "yehoyakim-todolist-f5844": {
+      "hosting": {
+        "firebase-todolist": [
+          "yehoyakim-todolist-f5844"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "yehoyakim-todolist-f5844"
+  }
+}

@@ -1,0 +1,15 @@
+<h1>To-Do-List</h1>
+
+<!-- to use ngModel we need to import FormsModule inside the imports-section of
+app.module.ts -->
+<input [(ngModel)]="todotext" placeholder="Please insert To-Do" type="text">
+<button (click)="newToDo()">Add To Do</button>
+
+<ul>
+  <!-- | async is similar to the async function we used when dealing with promises
+  the | stands for a pipe -->
+  <li *ngFor="let todo of todos$ | async">
+    <!-- alternatively use {{ todo.name }} -->
+    {{ todo['name'] }} 
+  </li>
+</ul>
