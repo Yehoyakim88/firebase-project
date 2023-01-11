@@ -15,8 +15,8 @@ interface Item {
 
 export class AppComponent {
   // the $ character does not have any function! It just makes clear that it is an updatable variable (type: Observable)
-  todos$: Observable<any>;               // variable item$ of type Observable which updates itself when changes are made on side of database
-  // todos:Array<any>;
+  todos$: Observable<any>;    // variable item$ of type Observable which updates itself when changes are made on side of database
+  // todos:Array<any>;        // variable todos is for use of of method .subscribe()
 
   todotext:string = '';
   
@@ -24,15 +24,17 @@ export class AppComponent {
   constructor(private firestore: Firestore) {
     // strict-mode inside angular.json set off, so that coll can be without postix ': <type>'
     // name of desired collection to download is 'todos'
+    // the name 'todos' can be checked on www.console.firebase.google.com
     const coll = collection(firestore, 'todos');  
     this.todos$ = collectionData(coll);
 
-    // to immediately update on every database change
+    // to immediately update on every database change ------------------------------
     // use the code snippet below
     // this.todos$.subscribe((newToDoS) => {
     //   console.log('New data are: ', newToDoS);
     //   this.todos = newToDoS;
     // });
+    // -----------------------------------------------------------------------------
   }
 
   newToDo() {
